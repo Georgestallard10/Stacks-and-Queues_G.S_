@@ -33,6 +33,7 @@ public class Stack {
     }
 
     public int top() {
+        guardAgainstEmptyException();
         int topValue = this.data.get(this.data.size() - 1);
         return topValue;
     }
@@ -42,13 +43,24 @@ public class Stack {
     }
 
     public void push(int a) {
+        guardAgainstFullException();
         this.data.add(a);
     }
 
     public void pop() {
+        guardAgainstEmptyException();
         int Top = this.data.size() - 1;
         this.data.remove(Top);
 
+    }
+    public void guardAgainstEmptyException(){
+        if (this.size() == 0)
+        throw new StackEmptyException("Stack Empty");
+    }
+    public void guardAgainstFullException(){
+        if (this.size() > this.maxSize){
+            throw new StackFullException("Stack full");
+        }
     }
 
 }

@@ -58,12 +58,16 @@ public class StackTest {
     }
     @Test
     public void can_it_Throw_a_StackEmptyException(){
-       // Stack s = new Stack();
-        //s.pop();
+        Stack s = new Stack(0);
+        s.pop();
+
     }
     @Test
     public  void can_it_Throw_a_StackFullException(){
         Stack s = new Stack(1);
+        s.push(4);
+        s.push(3);
+        s.push(2);
 
     }
     @Test
